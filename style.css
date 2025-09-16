@@ -1,0 +1,21 @@
+/* overlay que cobre a tela e pisca em vermelho */
+    #flash {
+      position: fixed;
+      inset: 0;
+      background: red;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* animação de piscar: opacidade sobe e desce */
+    @keyframes piscarVermelho {
+      0%   { opacity: 0; }
+      50%  { opacity: 0.6; }
+      100% { opacity: 0; }
+    }
+
+    /* quando o body recebe a classe alerta, o overlay anima */
+    body.alerta #flash {
+      animation: piscarVermelho 0.8s linear infinite;
+    }
